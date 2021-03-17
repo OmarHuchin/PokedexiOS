@@ -21,7 +21,7 @@ enum PokemonServiceRouter: INetworkRouter{
             return "pokemon"
         case .getPokemons(_):
             return ""
-        case .getPokemon(url: let url):
+        case .getPokemon(_):
             return ""
         case .getPokemonById(id: let id):
             return "pokemon/\(id)"
@@ -41,9 +41,9 @@ enum PokemonServiceRouter: INetworkRouter{
             ])
         case .getPokemons( _):
             return .requestPlain
-        case .getPokemon(url: let url):
+        case .getPokemon( _):
             return .requestPlain
-        case .getPokemonById(id: let id):
+        case .getPokemonById(_):
             return .requestPlain
         }
     }
@@ -53,8 +53,8 @@ enum PokemonServiceRouter: INetworkRouter{
     }
     var baseURL: URL? {
         switch self {
-        case .getPokemonById(id: let id):
-        return nil
+        case .getPokemonById(id: _):
+            return nil
         case .getPokemonList:
             return nil
         case .getPokemons(url: let url):

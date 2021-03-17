@@ -125,8 +125,6 @@ class NetworkService: INetwork{
         }
     }
     private func getNetworking(_ request: INetworkRouter)->Networking{
-        print(request.baseURL?.absoluteString)
-        print(request.baseURL?.relativeString)
         networking.headerFields = request.headers
         if request.baseURL != nil && (request.baseURL?.absoluteString != baseUrl || configuration.timeoutIntervalForRequest != request.timeOut){
             let urlSession = URLSessionConfiguration.default
